@@ -26,3 +26,5 @@ We suggest that you begin by typing:
 ## test start with browser openning
 
     npx playwright test --headed
+
+## npx playwright test --ui
