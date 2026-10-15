@@ -21,7 +21,7 @@ test("second test", async ({ page }) => {
   await page.pause();
 });
 
-test.only("Rahul Shetty Academy Login Page", async ({ page }) => {
+test("Rahul Shetty Academy Login Page", async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
 
   //   find the locators for username, password, and sign in button
@@ -64,6 +64,15 @@ test.only("Rahul Shetty Academy Login Page", async ({ page }) => {
 
   await expect(termsAndCondition).toBeChecked();
 
+
+
+
+const floatingText = page.locator("float-right");
+
+floatingText.click();
+
+
+
   //   click on the sighn in button
 
   await sighnInButton.click();
@@ -75,3 +84,34 @@ test.only("Rahul Shetty Academy Login Page", async ({ page }) => {
   //   pause the execution
   await page.pause();
 });
+
+
+
+test.only("Angular page practice", async ({ page }) =>{
+
+    await page.goto("https://rahulshettyacademy.com/angularpractice/");
+
+    await page.getByLabel("Check me out if you Love IceCreams!").click();
+    // await page.getByLabel("Employed").click();
+    await page.getByLabel("Employed").check();
+
+    await page.getByLabel("Gender").selectOption("Female");
+
+    await page.getByPlaceholder("Password").fill("12345600000000000");
+
+    // await page.locator("input.form-control.ng-pristine.ng-invalid.ng-touched").fill("Shakibrybmn@gmail.com");
+
+    await page.getByRole("button", {name: "Submit"}).click();
+
+    await page.getByText("The Form has been submitted successfully!.").isVisible();
+
+    expect(await page.getByText("The Form has been submitted successfully!.").isVisible()).toBeTruthy();
+
+    await page.locator(".close").click();
+
+    await page.getByRole("link", {name: "shop"}).click();
+
+    await page.locator("app-card").filter({hasText: "Blackberry"}).getByRole("button", {name: "Add"}).click();
+
+    await page.pause();
+})
