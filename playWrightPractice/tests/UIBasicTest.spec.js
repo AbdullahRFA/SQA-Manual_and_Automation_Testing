@@ -87,7 +87,7 @@ floatingText.click();
 
 
 
-test.only("Angular page practice", async ({ page }) =>{
+test("Angular page practice", async ({ page }) =>{
 
     await page.goto("https://rahulshettyacademy.com/angularpractice/");
 
@@ -115,3 +115,4 @@ test.only("Angular page practice", async ({ page }) =>{
 
     await page.pause();
 })
+
